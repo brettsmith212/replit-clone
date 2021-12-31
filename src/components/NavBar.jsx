@@ -1,12 +1,53 @@
 import React from 'react';
 import styled from 'styled-components';
 
+/********** Styling **********/
+// Streamline HQ Icons Used
 const Navbar = styled.nav`
   background-color: ${({theme}) => theme.colors.bodyWindow};
-  height: 8rem;
+  height: 6rem;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+`
+const Menu = styled.div`
+  border: 1px solid red;
   display: flex;
   align-items: center;
-  padding: 0 2rem;
+  width: 50rem;
+`
+const RunButtonDiv = styled.div`
+  border: 1px solid red;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  
+  button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 1.5rem 2rem;
+    border: none;
+    border-radius: 10px;
+    background-color: ${({theme}) => theme.colors.runButtonColor};
+    color: #51cf66;
+    font-size: ${({theme}) => theme.fontSize.h4};
+    font-weight: bold;
+  }
+  button:hover {
+    background-color: ${({theme}) => theme.colors.runButtonHoverColor};
+    color: ${({theme}) => theme.colors.whiteFontColor};
+  }
+  ion-icon {
+    font-size: 1.8rem;
+    margin-right: 0.6rem;
+  }
+`
+const LeftMenu = styled.div`
+  border: 1px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 `
 const Hamburger = styled.img`
   width: 2rem;
@@ -35,16 +76,21 @@ const HistoryIcon = styled.img`
   margin-left: 1rem;
 `
 
+/********** NavBar Component **********/
 const NavBar = () => {
   
   return (
     <Navbar>
-      <Hamburger src="/src/components/assets/hamburger.svg" />
-      <ReplitLogo src="/src/components/assets/replitLogo.png" />
-      <ProfileImg src="/src/components/assets/astronaut.png" />
-      <FilePath>brettsmith212 / replit-clone</FilePath>
-      <LanguageIcon src="/src/components/assets/reactImg.png" />
-      <HistoryIcon src="/src/components/assets/historyIcon.svg" />
+      <Menu>
+        <Hamburger src="/src/components/assets/hamburger.svg" />
+        <ReplitLogo src="/src/components/assets/replitLogo.png" />
+        <ProfileImg src="/src/components/assets/astronaut.png" />
+        <FilePath>brettsmith212 / replit-clone</FilePath>
+        <LanguageIcon src="/src/components/assets/reactImg.png" />
+        <HistoryIcon src="/src/components/assets/historyIcon.svg" />
+      </Menu>
+      <RunButtonDiv><button><ion-icon name="play"></ion-icon>Run</button></RunButtonDiv>
+      <LeftMenu>Left Menu</LeftMenu>
     </Navbar>
   )
 }

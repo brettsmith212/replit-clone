@@ -3,6 +3,10 @@ export const theme = {
     header: "#1d2332",
     bodyWindow: "#1d2332",
     body: "#0f1524",
+    stopButtonColor: "#343947",
+    stopButtonHoverColor: "#4a4f5b",
+    runButtonColor: "#1a5325",
+    runButtonHoverColor: "#2b8a3e",
     whiteFontColor: "#f6f9fc",
     grayFontColor: "#8c9199"
   },
