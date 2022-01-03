@@ -17,4 +17,7 @@ export const theme = {
     h3: "2rem",
     h4: "1.6rem",
   },
+  height: {
+    navbar: "6rem"
+  }
 };

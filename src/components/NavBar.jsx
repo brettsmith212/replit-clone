@@ -2,22 +2,21 @@ import React from 'react';
 import styled from 'styled-components';
 
 /********** Styling **********/
-// Streamline HQ Icons Used
 const Navbar = styled.nav`
   background-color: ${({theme}) => theme.colors.bodyWindow};
-  height: 6rem;
+  height: ${({theme}) => theme.height.navbar};
   padding: 0 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 `
 const Menu = styled.div`
-  border: 1px solid red;
+  // border: 1px solid red;
   display: flex;
   align-items: center;
   width: 50rem;
 `
 const RunButtonDiv = styled.div`
-  border: 1px solid red;
+  // border: 1px solid red;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -44,10 +43,40 @@ const RunButtonDiv = styled.div`
   }
 `
 const LeftMenu = styled.div`
-  border: 1px solid red;
+  // border: 1px solid red;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+
+  button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: ${({theme}) => theme.fontSize.h4};
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: none;
+    background-color: ${({theme}) => theme.colors.stopButtonColor};
+    color: ${({theme}) => theme.colors.whiteFontColor};
+  }
+  button:hover {
+    border: 1px solid ${({theme}) => theme.colors.grayFontColor};
+  }
+  img {
+    width: 1.6rem;
+    margin-right: 0.4rem;
+  }
+  ion-icon {
+    font-size: 2rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
+  ion-icon:hover {
+    background-color: ${({theme}) => theme.colors.stopButtonColor};
+
+  }
 `
 const Hamburger = styled.img`
   width: 2rem;
@@ -89,8 +118,19 @@ const NavBar = () => {
         <LanguageIcon src="/src/components/assets/reactImg.png" />
         <HistoryIcon src="/src/components/assets/historyIcon.svg" />
       </Menu>
-      <RunButtonDiv><button><ion-icon name="play"></ion-icon>Run</button></RunButtonDiv>
-      <LeftMenu>Left Menu</LeftMenu>
+      <RunButtonDiv>
+        <button>
+          <ion-icon name="play"></ion-icon>
+          Run
+        </button>
+      </RunButtonDiv>
+      <LeftMenu>
+        <button>
+          <img src="/src/components/assets/inviteIcon.svg" />
+          Invite
+        </button>
+        <ion-icon name="search-outline"></ion-icon>
+      </LeftMenu>
     </Navbar>
   )
 }

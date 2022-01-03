@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "./components/styles/Theme";
 import GlobalStyles from "./components/styles/Global";
 import NavBar from "./components/NavBar"
+import Body from "./components/Body"
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <>
         <GlobalStyles />
         <NavBar />
+        <Body />
       </>
     </ThemeProvider>
   );
