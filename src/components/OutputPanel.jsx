@@ -13,9 +13,19 @@ const OutputPanelContainer = styled.section`
   resize: horizontal;
 `
 
-const OutputPanel = () => {
+const OutputPanel = (props) => {
+  const {
+    srcDoc
+  } = props;
+  
   return (
-    <OutputPanelContainer>Output Panel</OutputPanelContainer>
+    <OutputPanelContainer>
+      <iframe
+        srcDoc={srcDoc}
+        title="output"
+        sandbox="allow-scripts"
+      />
+    </OutputPanelContainer>
   )
 }
 
