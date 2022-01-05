@@ -126,7 +126,10 @@ const HistoryIcon = styled.img`
 
 /********** NavBar Component **********/
 const NavBar = (props) => {
-  const { handleSubmit, isLoading } = props
+  const { handleSubmit, isLoading, setIsLoading } = props;
+  const stopLoading = () => {
+    setIsLoading(false);
+  };
 
   return (
     <Navbar>
@@ -140,7 +143,7 @@ const NavBar = (props) => {
       </Menu>
       <RunButtonDiv>
         {isLoading ?
-          <StopButton>
+          <StopButton onClick={stopLoading}>
             <ion-icon name="stop"></ion-icon>
             Stop
           </StopButton>

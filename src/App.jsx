@@ -9,10 +9,13 @@ import Body from "./components/Body";
 function App() {
   const [code, setCode] = useState('');
   const [output, setOutput] = useState('');
+  const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async () => {
     setIsLoading(true);
+    setError('');
+    setOutput('');
     const payload = {
       language: 'javascript',
       code,
@@ -20,9 +23,10 @@ function App() {
 
     try {
       const { data } = await axios.post("https://replit-backend.brettsmith212.repl.co/run", payload);
-      setOutput(data.output)
+      setOutput(data.output);
     } catch (err) {
-      console.log(err.response)
+      let untrimmedErr = err.response.data.err.stderr;
+      setError(untrimmedErr)
     }
     setIsLoading(false);
   }
@@ -31,8 +35,8 @@ function App() {
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyles />
-        <NavBar handleSubmit={handleSubmit} isLoading={isLoading} />
-        <Body code={code} setCode={setCode} output={output} />
+        <NavBar handleSubmit={handleSubmit} isLoading={isLoading} setIsLoading={setIsLoading} />
+        <Body code={code} setCode={setCode} output={output} error={error}/>
       </>
     </ThemeProvider>
   );

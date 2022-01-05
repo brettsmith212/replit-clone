@@ -13,7 +13,7 @@ const BodyContainer = styled.main`
 `
 
 const Body = (props) => {
-  const { code, setCode, output } = props;
+  const { code, setCode, output, error } = props;
   const language = "javascript";
 
   return (
@@ -24,7 +24,7 @@ const Body = (props) => {
         value={code} 
         onChange={setCode}
       />
-      <OutputPanel output={output} />
+      <OutputPanel output={output} error={error} />
     </BodyContainer>
   )
 }

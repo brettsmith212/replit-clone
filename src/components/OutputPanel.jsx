@@ -11,6 +11,7 @@ const OutputPanelContainer = styled.section`
   min-width: 10rem;
   overflow: auto;
   resize: horizontal;
+  white-space: pre-wrap;
 
   p {
     font-size: ${({theme}) => theme.fontSize.h4}
@@ -19,12 +20,12 @@ const OutputPanelContainer = styled.section`
 
 const OutputPanel = (props) => {
   const {
-    output
+    output, error
   } = props;
   
   return (
     <OutputPanelContainer>
-      <p>{output}</p>
+      {error ? <p>{error}</p> : <p>{output}</p>}
     </OutputPanelContainer>
   )
 }
