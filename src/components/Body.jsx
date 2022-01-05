@@ -12,32 +12,19 @@ const BodyContainer = styled.main`
   grid-column-gap: 1rem;
 `
 
-const Body = () => {
-  const [lang, setLang] = useState('');
-  const [srcDoc, setSrcDoc] = useState('');
+const Body = (props) => {
+  const { code, setCode, output } = props;
   const language = "javascript";
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setSrcDoc(`
-      <html>
-        <script>${lang}</script>
-      </html>
-      `)
-    }, 250);
-
-    return () => clearTimeout(timeout);
-  }, [language]);
-
   return (
-    <BodyContainer>
+    <BodyContainer code={code}>
       <SideBar />
       <CodeEditor 
         language={language} 
-        value={lang} 
-        onChange={setLang}
+        value={code} 
+        onChange={setCode}
       />
-      <OutputPanel srcDoc={srcDoc}/>
+      <OutputPanel output={output} />
     </BodyContainer>
   )
 }

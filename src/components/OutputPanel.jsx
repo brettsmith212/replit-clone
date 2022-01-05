@@ -11,20 +11,20 @@ const OutputPanelContainer = styled.section`
   min-width: 10rem;
   overflow: auto;
   resize: horizontal;
+
+  p {
+    font-size: ${({theme}) => theme.fontSize.h4}
+  }
 `
 
 const OutputPanel = (props) => {
   const {
-    srcDoc
+    output
   } = props;
   
   return (
     <OutputPanelContainer>
-      <iframe
-        srcDoc={srcDoc}
-        title="output"
-        sandbox="allow-scripts"
-      />
+      <p>{output}</p>
     </OutputPanelContainer>
   )
 }

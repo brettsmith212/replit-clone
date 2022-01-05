@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/material.css';
+import 'codemirror/theme/material-palenight.css';
 import 'codemirror/mode/xml/xml';
 import 'codemirror/mode/javascript/javascript';
 import 'codemirror/mode/css/css';
@@ -17,6 +17,10 @@ const CodeEditorContainer = styled.section`
   overflow: auto;
   min-width: 10rem;
   resize: horizontal;
+
+  .CodeMirror {
+    font-size: ${({theme}) => theme.fontSize.h4};
+  }
 `
 
 const CodeEditor = (props) => {
@@ -30,7 +34,6 @@ const CodeEditor = (props) => {
     onChange(value)
   }
 
-
   return (
     <CodeEditorContainer>
       <ControlledEditor 
@@ -40,7 +43,7 @@ const CodeEditor = (props) => {
           lineWrapping: true,
           lint: true,
           mode: language,
-          theme: 'material',
+          theme: 'material-palenight',
           lineNumbers: true,
         }}
       />

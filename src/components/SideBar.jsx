@@ -17,7 +17,7 @@ const SideBar = () => {
 
   return (
     <>
-      <SideBarContainer>SideBar</SideBarContainer>
+      <SideBarContainer>File Explorer</SideBarContainer>
     </>
   )
 }
