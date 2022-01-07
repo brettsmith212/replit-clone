@@ -19,7 +19,7 @@ const CodeEditorContainer = styled.section`
   resize: horizontal;
 
   .CodeMirror {
-    font-size: ${({theme}) => theme.fontSize.h4};
+    font-size: ${({ theme }) => theme.fontSize.h4};
   }
 `
 
@@ -36,7 +36,7 @@ const CodeEditor = (props) => {
 
   return (
     <CodeEditorContainer>
-      <ControlledEditor 
+      <ControlledEditor
         onBeforeChange={handleChange}
         value={value}
         options={{
